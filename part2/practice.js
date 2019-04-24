@@ -11,8 +11,12 @@ function dummy () {
  * @param {array} array
  * @returns {array}
  */
-function reverse (array) {
-  return [];
+function reverse (arr) {	
+  var newArr = [];
+  for(var i = arr.length - 1; i >= 0; i--){
+    newArr[newArr.length] = arr[i];
+  }
+  return newArr;
 }
 
 /**
@@ -26,8 +30,17 @@ function reverse (array) {
  * @returns {string}
  * 
  */
-function stringReverse (text) {
-  return '';
+function stringReverse(text){
+  var wordsArray = text.split(" ");
+  var reversedWordConcat = "";
+  wordsArray.forEach(letter=>{
+    var reversedWord = ""; 
+    for(var i = letter.length - 1; i >= 0; i--){
+      reversedWord += letter[i];
+    }
+    reversedWordConcat += reversedWord;
+  });
+  return reversedWordConcat;
 }
 
 
@@ -41,8 +54,16 @@ function stringReverse (text) {
  * @param {number} length
  * @returns {array}
  */
-function fibonacci (length) {
-  return [];
+function fibonacci(position){
+  var sequence = [];
+  if(position === 1)
+    return [1];
+  if(position === 2)
+    return [1, 1];
+  
+  sequence = fibonacci(position - 1);
+  sequence[sequence.length] = (sequence[sequence.length - 1] + sequence[sequence.length - 2]);
+  return sequence;
 }
 
 /**
@@ -55,8 +76,8 @@ function fibonacci (length) {
  * @param {array} array
  * @returns {number}
  */
-function biggest (array) {
-  return 0;
+function biggest(array) {
+  return Math.max(...array);
 }
 
 /**
@@ -74,8 +95,12 @@ function biggest (array) {
  * @param {number} end 
  * @returns {array}
  */
-function range (start, end) {
-  return [];
+function range(start, end) {
+  var i, arrRange = [];
+  for(i = start; i <= (end - 1); i++){
+    arrRange[arrRange.length] = i;
+  }
+  return arrRange;
 }
 
 /**
@@ -91,8 +116,16 @@ function range (start, end) {
  * @param {array} array
  * @returns {array}
  */
-function flatten (array) {
-  return [];
+function flatten(arrToFlatten) {
+  var newArr = [];
+  for(var i = 0; i < arrToFlatten.length; i++) {
+    if(Array.isArray(arrToFlatten[i])) {
+      newArr.push(...flatten(arrToFlatten[i]));
+    } else {
+      newArr[newArr.length] = arrToFlatten[i];
+    }
+  }
+  return newArr;
 }
 
 module.exports = {
