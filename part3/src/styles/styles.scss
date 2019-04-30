@@ -1,0 +1,90 @@
+@import "./base/settings";
+@import "./base/common";
+@import "./base/base";
+
+ul.pagination li {
+    background-color: #eee;
+    padding: 10px 15px;
+    text-align: center;
+}
+ul.pagination li a {
+    color: #2b2b2b;
+    cursor: pointer;
+}
+
+ul.pagination li.previous{
+    -webkit-border-top-left-radius: 25px;
+    -webkit-border-bottom-left-radius: 25px;
+    -moz-border-radius-topleft: 25px;
+    -moz-border-radius-bottomleft: 25px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+ul.pagination li.first, ul.pagination li.last{
+    display:none;
+}
+ul.pagination li.previous:hover, ul.pagination li.next:hover{
+    background-color: #eee; 
+}
+ul.pagination li.previous:hover > a, ul.pagination li.next:hover > a{
+    color: $button_color;
+}
+ul.pagination li.next{
+    -webkit-border-top-right-radius: 25px;
+    -webkit-border-bottom-right-radius: 25px;
+    -moz-border-radius-topright: 25px;
+    -moz-border-radius-bottomright: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+ul.pagination li:hover, ul.pagination li.active{
+    background-color:$button_color;
+    cursor: pointer;
+
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+ul.pagination li:hover > a, ul.pagination li.active a, ul.pagination li.page-number a:hover{
+    color:#ffffff;
+    text-decoration:none;
+}
+
+.pagination_wrapper{
+	justify-content: center;
+	align-items: center;
+
+	@include display_flex();
+}
+
+.pen{
+    cursor: pointer;
+}
+
+.table_users{
+    table-layout:fixed;
+}
+.table_users__id, .table_users__head_id{
+    width:5%;
+}
+.table_users__name, .table_users__head_name{
+    width:25%;
+}
+.table_users__web, .table_users__head_web{
+    width:35%;
+}
+.table_users__loc, .table_users__head_web{
+    width:35%;
+}
+.long_and_truncated {
+    flex: 1;
+    &, & > * {
+        overflow: hidden;
+        max-width:90%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
